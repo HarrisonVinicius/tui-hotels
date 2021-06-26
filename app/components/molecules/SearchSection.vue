@@ -20,6 +20,17 @@
           </b-icon>
         </template>
       </BaseButton>
+      <BaseButton class="search-section__input__button-mobile" red>
+        Search
+        <template #icon>
+          <b-icon
+            class="search-section__input__button-mobile__icon"
+            icon="arrow-bottom-right"
+            size="is-small"
+          >
+          </b-icon>
+        </template>
+      </BaseButton>
     </div>
   </section>
 </template>
@@ -44,13 +55,36 @@ export default {
   align-items: center
   background-color: $light-blue
 
+  @media (max-width: 768px)
+    &__input
+      width: 100% !important
+      flex-direction: column
+      padding-right: 30px
+
+      &__button
+        display: none
+
+      &__button-mobile
+        display: flex !important
+        width: 90%
+        height: 2.8em
+        margin-left: 33px
+
+        &__icon
+          transform: rotate(-45deg)
+          position: relative
+          left: 10px
+
   &__input
     width: 60%
     display: flex
 
+    &__button-mobile
+      display: none
+
     &__button
       width: 30% !important
-      height: 6.5vh !important
+      height: 2.8em !important
 
       &__icon
         transform: rotate(-45deg)
