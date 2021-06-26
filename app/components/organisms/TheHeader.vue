@@ -1,0 +1,81 @@
+<template>
+  <header>
+    <div
+      class="header-container headroom container"
+      :class="{
+        'headroom--unpinned': scrolled,
+      }"
+      v-on="{ handleScroll }"
+    >
+      <Logo class="header-container__logo" />
+      <BaseButton class="header-container__link" link @click="clickHandler">
+        Back
+      </BaseButton>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  name: 'TheHeader',
+  data() {
+    return {
+      scrolled: false,
+      lastPosition: 0,
+      limitPosition: 100,
+    }
+  },
+
+  methods: {
+    handleScroll() {
+      if (this.lastPosition < window.scrollY) this.scrolled = true
+
+      if (
+        this.lastPosition > window.scrollY &&
+        this.limitPosition > window.scrollY
+      )
+        this.scrolled = false
+
+      this.lastPosition = window.scrollY
+    },
+
+    clickHandler() {
+      this.$router.go(-1)
+    },
+  },
+
+  beforeMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+}
+</script>
+
+<style lang="sass" scoped>
+header
+  z-index: 5 !important
+
+.header-container
+  width: 100%
+  padding: 30px 30px
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  &__link
+    width: 4% !important
+
+  &__logo
+    width: 120px !important
+    height: 50px !important
+
+.headroom
+  will-change: padding
+  transition: padding 100ms ease-in-out
+
+.headroom--unpinned
+  padding: 20px 30px
+</style>
