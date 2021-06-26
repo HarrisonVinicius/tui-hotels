@@ -4,4 +4,5 @@ const setFactory = (key) => (state, data) => {
 
 export default {
   SET_HOTELS: setFactory('hotels'),
+  SET_CITY_SELECTED: setFactory('citySelected'),
 }

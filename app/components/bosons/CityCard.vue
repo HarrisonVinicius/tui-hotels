@@ -40,11 +40,24 @@ export default {
       type: String,
       default: '',
     },
+
+    cityData: {
+      type: Object,
+      default: () => {},
+    },
   },
 
   methods: {
     clickHandler() {
-      this.$emit('click', this.cityCode)
+      this.$emit('click', this.createObj())
+    },
+
+    createObj() {
+      const obj = {
+        code: this.cityCode,
+        cityData: this.cityData,
+      }
+      return obj
     },
   },
 }

@@ -1,4 +1,4 @@
 export default () => ({
   hotels: null,
-  weather: null,
+  citySelected: null,
 })

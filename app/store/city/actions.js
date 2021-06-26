@@ -5,6 +5,8 @@ function basicActionFactory(action) {
 }
 
 export default {
+  setSelectedCity: basicActionFactory('SET_CITY_SELECTED'),
+
   async getHotels({ commit }, payload) {
     const res = await this.$api.get(
       `/shopping/hotel-offers?cityCode=${payload}`
