@@ -44,6 +44,14 @@ export default {
       hotel: null,
     }
   },
+
+  watch: {
+    hotel: {
+      handler() {
+        this.$emit('input', this.hotel)
+      },
+    },
+  },
 }
 </script>
 

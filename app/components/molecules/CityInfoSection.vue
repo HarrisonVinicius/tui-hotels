@@ -57,7 +57,7 @@ export default {
   &__resume
     position: relative
     margin-top: 15px
-    width: 80%
+    width: 90%
 
     h1
       font-size: 28px
@@ -75,8 +75,8 @@ export default {
       color: $dark-blue
 
   &__image
-    height: 12em
-    width: 80%
+    height: 15em
+    width: 90%
     background-color: red
     position: relative
     z-index: 0
