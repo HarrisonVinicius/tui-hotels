@@ -1,7 +1,7 @@
 <template>
   <div class="hotels-list">
     <article>
-      <SearchSection />
+      <SearchSection v-model="inputValue" />
     </article>
     <div class="hotels-list__container">
       <article class="hotels-list__container__content">
@@ -14,7 +14,7 @@
           />
         </aside>
         <div class="hotels-list__container__content__city-hotels">
-          <span> city hotels </span>
+          <TheHotelsList :hotels="list" :location="cityData.name" />
         </div>
       </article>
     </div>
@@ -27,14 +27,45 @@ import { mapState } from 'vuex'
 export default {
   name: 'HotelsList',
 
+  data() {
+    return {
+      list: [],
+      inputValue: null,
+    }
+  },
+
   computed: {
     ...mapState({
       cityData: (state) => state.city.citySelected,
+      cityHotels: (state) => state.city.hotelsList,
     }),
   },
 
-  mounted() {
-    console.log(this.cityData)
+  created() {
+    this.list = this.cityHotels
+  },
+
+  watch: {
+    inputValue: {
+      handler() {
+        this.list = this.cityHotels
+        this.filterHandler()
+      },
+    },
+  },
+
+  methods: {
+    filterHandler() {
+      let filteredArray = []
+      let upperCaseSearchInput = ''
+      upperCaseSearchInput = this.inputValue.toUpperCase()
+      filteredArray = this.list.filter((item) =>
+        upperCaseSearchInput
+          .split(' ')
+          .every((term) => item.hotelName.toUpperCase().includes(term))
+      )
+      this.list = filteredArray
+    },
   },
 }
 </script>
@@ -69,4 +100,5 @@ export default {
 
       &__city-hotels
         width: 60%
+        border-left: 1px solid $base-gray
 </style>

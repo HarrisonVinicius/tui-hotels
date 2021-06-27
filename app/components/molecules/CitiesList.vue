@@ -74,7 +74,8 @@ export default {
       this.isLoading = true
       try {
         await Promise.all([
-          // this.getHotels(payload.code),
+          //the call to the action below will not be used to not block the application flow due to endpoint instabilities
+          // ---> this.getHotels(payload.code),
           this.setSelectedCity(payload.cityData),
         ])
         this.$router.push('/hotels/hotels-list')
