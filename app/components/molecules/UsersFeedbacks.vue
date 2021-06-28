@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   name: 'UsersFeedbacks',
 
@@ -20,16 +18,13 @@ export default {
     return {
       feedbacksItems: [],
       hasFeedbacks: false,
+      usersFeedbacks: null,
     }
   },
 
-  computed: {
-    ...mapState({
-      usersFeedbacks: (state) => state.city.hotelSelected.feedbacks,
-    }),
-  },
-
   mounted() {
+    const res = JSON.parse(sessionStorage.getItem('hotelSelected'))
+    this.usersFeedbacks = res.feedbacks
     this.usersFeedbacks.forEach((element) => {
       this.feedbacksItems.push(element)
     })

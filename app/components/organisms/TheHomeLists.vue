@@ -45,18 +45,21 @@ export default {
       citiesList: [],
       countrySelected: null,
       countryOptions: null,
+      countryAlreadySelected: null,
     }
   },
 
   computed: {
     ...mapState({
       countriesOptions: (state) => state.countries.countryOptions,
-      countryAlreadySelected: (state) => state.countries.countrySelected,
     }),
   },
 
   mounted() {
     this.countryOptions = this.countriesOptions
+    this.countryAlreadySelected = JSON.parse(
+      sessionStorage.getItem('countrySelected')
+    )
     if (this.countryAlreadySelected)
       this.showCitiesHandler(this.countryAlreadySelected)
   },

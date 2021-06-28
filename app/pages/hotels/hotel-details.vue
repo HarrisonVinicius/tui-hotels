@@ -23,6 +23,8 @@
 export default {
   name: 'HotelDetails',
 
+  scrollToTop: true,
+
   methods: {
     scrollHandler(payload) {
       let id = ''

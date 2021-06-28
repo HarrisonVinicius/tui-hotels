@@ -32,6 +32,8 @@ import { mapState } from 'vuex'
 export default {
   name: 'HotelsList',
 
+  scrollToTop: true,
+
   data() {
     return {
       list: [],
@@ -56,7 +58,6 @@ export default {
   mounted() {
     this.cityInfo = JSON.parse(sessionStorage.getItem('citySelected'))
     this.generateListHandler()
-    this.$forceUpdate()
   },
 
   watch: {

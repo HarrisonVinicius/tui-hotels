@@ -13,24 +13,19 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   name: 'RoomsList',
 
   data() {
     return {
       rooms: [],
+      roomsData: null,
     }
   },
 
-  computed: {
-    ...mapState({
-      roomsData: (state) => state.city.hotelSelected.roomsAvailable,
-    }),
-  },
-
   mounted() {
+    const res = JSON.parse(sessionStorage.getItem('hotelSelected'))
+    this.roomsData = res.roomsAvailable
     this.roomsData ? (this.rooms = { ...this.roomsData }) : (this.rooms = {})
   },
 }
