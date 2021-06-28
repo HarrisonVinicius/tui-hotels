@@ -64,6 +64,8 @@ export default {
   background-color: $light-blue
 
   @media (max-width: 768px)
+    min-height: 10em !important
+
     &__input
       width: 100% !important
       flex-direction: column
