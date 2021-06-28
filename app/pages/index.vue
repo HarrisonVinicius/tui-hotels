@@ -12,10 +12,6 @@
         />
       </div>
     </div>
-    <!-- <div class="general__fade" />
-    <div class="general__footer">
-      <img src="/images/footer.png" alt="png">
-    </div> -->
   </div>
 </template>
 
@@ -23,6 +19,8 @@
 import { mapActions } from 'vuex'
 export default {
   name: 'Default',
+
+  scrollToTop: true,
 
   methods: {
     ...mapActions({

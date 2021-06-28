@@ -26,24 +26,28 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   name: 'HotelDetailsHeader',
 
   data() {
     return {
       hotel: {},
+      hotelData: {
+        hotelName: '',
+        hotelStatus: 0,
+        hotelType: '',
+        price: '',
+        image: '',
+        location: '',
+        hotelFeatures: [],
+        roomsAvailable: [],
+        feedbacks: [],
+      },
     }
   },
 
-  computed: {
-    ...mapState({
-      hotelData: (state) => state.city.hotelSelected,
-    }),
-  },
-
   mounted() {
+    this.hotelData = JSON.parse(sessionStorage.getItem('hotelSelected'))
     this.hotelData ? (this.hotel = { ...this.hotelData }) : (this.hotel = {})
   },
 }
