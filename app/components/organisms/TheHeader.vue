@@ -65,7 +65,7 @@ header
   justify-content: space-between
   align-items: center
 
-  @media (max-width: 1024px)
+  @media (max-width: 1200px)
     padding: 2em 2em !important
 
   &__link

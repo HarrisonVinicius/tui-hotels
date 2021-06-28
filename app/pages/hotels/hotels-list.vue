@@ -1,27 +1,29 @@
 <template>
-  <div class="hotels-list">
-    <article>
-      <SearchSection v-model="inputValue" />
-    </article>
-    <div class="hotels-list__container">
-      <div class="hotels-list__container__filters">
-        <Filters @click="listSortHandler" />
-      </div>
-      <article class="hotels-list__container__content">
-        <aside class="hotels-list__container__content__city-info">
-          <CityInfoSection
-            :image="cityData.img"
-            :city-name="cityData.name"
-            :weather-data="cityData.weather"
-            :city-resume="cityData.climate"
-          />
-        </aside>
-        <div class="hotels-list__container__content__city-hotels">
-          <TheHotelsList :hotels="list" :location="cityData.name" />
-        </div>
+  <client-only>
+    <div class="hotels-list">
+      <article>
+        <SearchSection v-model="inputValue" />
       </article>
+      <div class="hotels-list__container">
+        <div class="hotels-list__container__filters">
+          <Filters @click="listSortHandler" />
+        </div>
+        <article class="hotels-list__container__content">
+          <aside class="hotels-list__container__content__city-info">
+            <CityInfoSection
+              :image="cityInfo.img"
+              :city-name="cityInfo.name"
+              :weather-data="cityInfo.weather"
+              :city-resume="cityInfo.climate"
+            />
+          </aside>
+          <div class="hotels-list__container__content__city-hotels">
+            <TheHotelsList :hotels="list" :location="cityInfo.name" />
+          </div>
+        </article>
+      </div>
     </div>
-  </div>
+  </client-only>
 </template>
 
 <script>
@@ -34,6 +36,13 @@ export default {
     return {
       list: [],
       inputValue: null,
+      cityInfo: {
+        img: '',
+        name: '',
+        weather: '',
+        climate: '',
+      },
+      loading: false,
     }
   },
 
@@ -44,8 +53,10 @@ export default {
     }),
   },
 
-  created() {
+  mounted() {
+    this.cityInfo = JSON.parse(sessionStorage.getItem('citySelected'))
     this.generateListHandler()
+    this.$forceUpdate()
   },
 
   watch: {
@@ -65,6 +76,7 @@ export default {
       })
     },
 
+    // in a real situation this function would be called after a request for the api to return the hotels that were searched
     filterHandler() {
       let filteredArray = []
       let upperCaseSearchInput = ''
@@ -77,6 +89,7 @@ export default {
       this.list = filteredArray
     },
 
+    // the sort capacity can be easily improved
     listSortHandler() {
       this.list.reverse()
     },
@@ -88,20 +101,25 @@ export default {
 .hotels-list
   min-height: 100vh
 
-  @media (max-width: 1024px)
+  @media (max-width: 1200px)
     &__container
       padding: 2em 2em !important
 
-  @media (max-width: 768px)
+  @media (max-width: 970px)
     &__container
+      &__filters
+        position: inherit !important
+        left: 0 !important
+
       &__content
         flex-direction: column !important
 
         &__city-info
-          width: 100% !important
+          display: none
 
         &__city-hotels
           width: 100% !important
+          border: 0 !important
 
   &__container
     padding: 5em 10em

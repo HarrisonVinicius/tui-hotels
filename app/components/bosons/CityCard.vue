@@ -75,7 +75,6 @@ export default {
   &__header-img
     height: 165px
     width: 100%
-    background-color: red
 
     &__img
       height: 100%

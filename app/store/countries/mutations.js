@@ -4,4 +4,5 @@ const setFactory = (key) => (state, data) => {
 
 export default {
   SET_COUNTRY_SELECTED: setFactory('countrySelected'),
+  SET_COUNTRIES: setFactory('countryOptions'),
 }

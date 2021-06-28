@@ -1,5 +1,8 @@
 export default () => ({
   countrySelected: null,
+  // the state below is a simulation of a get request data return
+  // to increase performance this endpoint would be called using nuxt server init
+  // this state would be set through a mutation called by the nuxtServerInit action
   countryOptions: [
     {
       name: 'Portugal',

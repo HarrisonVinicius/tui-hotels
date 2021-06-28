@@ -17,7 +17,11 @@
         </div>
         <div class="hotels-list__footer">
           <span> {{ hotel.price }} / night </span>
-          <BaseButton red class="hotels-list__footer__button">
+          <BaseButton
+            red
+            class="hotels-list__footer__button"
+            @click="seeDetailsHandler(hotel)"
+          >
             details
           </BaseButton>
         </div>
@@ -27,6 +31,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'TheHotelsList',
 
@@ -41,6 +47,17 @@ export default {
       default: '',
     },
   },
+
+  methods: {
+    ...mapActions({
+      setSelectedHotel: 'city/setSelectedHotel',
+    }),
+
+    async seeDetailsHandler(payload) {
+      await this.setSelectedHotel(payload)
+      this.$router.push('/hotels/hotel-details')
+    },
+  },
 }
 </script>
 
@@ -48,6 +65,10 @@ export default {
 .hotels-list
   width: 100%
   padding: 0 0 0 6%
+
+  @media (max-width: 970px)
+    padding: 0 !important
+
 
   &__footer
     border-top: 1px solid $base-gray

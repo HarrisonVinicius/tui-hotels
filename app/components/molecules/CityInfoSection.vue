@@ -77,7 +77,6 @@ export default {
   &__image
     height: 15em
     width: 90%
-    background-color: red
     position: relative
     z-index: 0
 

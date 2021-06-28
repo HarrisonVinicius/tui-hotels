@@ -25,6 +25,18 @@ export default {
     cursor: pointer
     margin-bottom: 20px
 
+    @media (max-width: 786px)
+      height: 32em !important
+
+      article
+        flex-direction: column
+
+        header
+          width: 100% !important
+
+      &__info
+        width: 100% !important
+
     article
         height: 100%
         display: flex
