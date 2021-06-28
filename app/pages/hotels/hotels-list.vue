@@ -4,6 +4,9 @@
       <SearchSection v-model="inputValue" />
     </article>
     <div class="hotels-list__container">
+      <div class="hotels-list__container__filters">
+        <Filters @click="listSortHandler" />
+      </div>
       <article class="hotels-list__container__content">
         <aside class="hotels-list__container__content__city-info">
           <CityInfoSection
@@ -42,19 +45,26 @@ export default {
   },
 
   created() {
-    this.list = this.cityHotels
+    this.generateListHandler()
   },
 
   watch: {
     inputValue: {
       handler() {
-        this.list = this.cityHotels
+        this.list = []
+        this.generateListHandler()
         this.filterHandler()
       },
     },
   },
 
   methods: {
+    generateListHandler() {
+      this.cityHotels.forEach((element) => {
+        this.list.push(element)
+      })
+    },
+
     filterHandler() {
       let filteredArray = []
       let upperCaseSearchInput = ''
@@ -65,6 +75,10 @@ export default {
           .every((term) => item.hotelName.toUpperCase().includes(term))
       )
       this.list = filteredArray
+    },
+
+    listSortHandler() {
+      this.list.reverse()
     },
   },
 }
@@ -91,6 +105,11 @@ export default {
 
   &__container
     padding: 5em 10em
+
+    &__filters
+      position: relative
+      left: 43.5%
+      margin-bottom: 15px
 
     &__content
       display: flex

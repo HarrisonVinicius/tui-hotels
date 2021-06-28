@@ -28,11 +28,26 @@ export default {
     },
   },
 
-  mounted() {
-    for (let index = 0; index < this.stars; index++) {
-      const element = { star: '1' }
-      this.starsArray.push(element)
-    }
+  watch: {
+    stars: {
+      handler() {
+        this.generateStars()
+      },
+    },
+  },
+
+  created() {
+    this.generateStars()
+  },
+
+  methods: {
+    generateStars() {
+      this.starsArray = []
+      for (let index = 0; index < this.stars; index++) {
+        const element = { star: '1' }
+        this.starsArray.push(element)
+      }
+    },
   },
 }
 </script>
