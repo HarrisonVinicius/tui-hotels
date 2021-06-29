@@ -1,5 +1,5 @@
 <template>
-  <div class="city-card" @click="clickHandler">
+  <div ref="cityCard" class="city-card" @click="clickHandler">
     <article>
       <header>
         <div class="city-card__header-img">

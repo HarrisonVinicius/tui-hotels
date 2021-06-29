@@ -3,16 +3,16 @@
     <div class="hotel-details__container">
       <article>
         <header>
-          <HotelDetailsHeader />
+          <HotelDetailsHeader v-in-viewport.once class="transform" />
         </header>
         <div class="hotel-details__container__tabs">
           <Tabs @click="scrollHandler" />
         </div>
         <div id="rooms-list" class="hotel-details__container__rooms">
-          <RoomsList />
+          <RoomsList v-in-viewport.once class="transform" />
         </div>
         <div id="users-feedback" class="hotel-details__container__feedbacks">
-          <UsersFeedbacks />
+          <UsersFeedbacks v-in-viewport.once class="transform" />
         </div>
       </article>
     </div>
@@ -56,4 +56,14 @@ export default {
 
     article
       width: 100%
+
+.transform
+  opacity: 0
+  transform: translateY(100%)
+  transition: transform 1.2s , opacity 1.2s
+
+  &.in-viewport
+    opacity: 1
+    transform: translateY(0)
+    transition: transform 1.2s , opacity 1.2s
 </style>
