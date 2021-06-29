@@ -2,7 +2,11 @@
   <client-only>
     <div class="hotels-list">
       <article>
-        <SearchSection v-model="inputValue" />
+        <SearchSection
+          v-in-viewport.once
+          class="hotels-list__search-section"
+          v-model="inputValue"
+        />
       </article>
       <div class="hotels-list__container">
         <div class="hotels-list__container__filters">
@@ -11,6 +15,8 @@
         <article class="hotels-list__container__content">
           <aside class="hotels-list__container__content__city-info">
             <CityInfoSection
+              v-in-viewport.once
+              class="transform"
               :image="cityInfo.img"
               :city-name="cityInfo.name"
               :weather-data="cityInfo.weather"
@@ -122,6 +128,16 @@ export default {
           width: 100% !important
           border: 0 !important
 
+  &__search-section
+    opacity: 0
+    transform: translateX(100%)
+    transition: transform 1.2s , opacity 1.2s
+
+    &.in-viewport
+      opacity: 1
+      transform: translateX(0)
+      transition: transform 1.2s , opacity 1.2s
+
   &__container
     padding: 5em 10em
 
@@ -139,4 +155,14 @@ export default {
       &__city-hotels
         width: 60%
         border-left: 1px solid $base-gray
+
+.transform
+  opacity: 0
+  transform: translateY(100%)
+  transition: transform 1.2s , opacity 1.2s
+
+  &.in-viewport
+    opacity: 1
+    transform: translateY(0)
+    transition: transform 1.2s , opacity 1.2s
 </style>
