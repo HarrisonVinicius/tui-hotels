@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="filterItem"
     class="filter-item"
     :class="{ selected: isSelected }"
     @click="clickHandler"
