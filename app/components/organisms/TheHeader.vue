@@ -1,7 +1,7 @@
 <template>
   <header>
     <div
-      class="header-container headroom container"
+      class="header-container headroom"
       :class="{
         'headroom--unpinned': scrolled,
       }"
@@ -60,10 +60,13 @@ header
 
 .header-container
   width: 100%
-  padding: 30px 30px
+  padding: 2em 10em
   display: flex
   justify-content: space-between
   align-items: center
+
+  @media (max-width: 1200px)
+    padding: 2em 2em !important
 
   &__link
     width: 4% !important
@@ -77,5 +80,5 @@ header
   transition: padding 100ms ease-in-out
 
 .headroom--unpinned
-  padding: 20px 30px
+  padding: 1em 10em
 </style>

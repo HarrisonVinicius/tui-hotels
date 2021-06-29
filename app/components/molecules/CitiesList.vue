@@ -25,6 +25,7 @@
           :city-intro="city.intro"
           :city-image="city.img"
           :city-code="city.code"
+          :city-data="city"
           @click="chooseCityHandler"
         />
       </div>
@@ -62,6 +63,7 @@ export default {
   methods: {
     ...mapActions({
       getHotels: 'city/getHotels',
+      setSelectedCity: 'city/setSelectedCity',
     }),
 
     clickHandler() {
@@ -71,7 +73,11 @@ export default {
     async chooseCityHandler(payload) {
       this.isLoading = true
       try {
-        await this.getHotels(payload)
+        await Promise.all([
+          //the call to the action below will not be used to not block the application flow due to endpoint instabilities
+          // ---> this.getHotels(payload.code),
+          this.setSelectedCity(payload.cityData),
+        ])
         this.$router.push('/hotels/hotels-list')
       } catch (error) {
         console.log(error)

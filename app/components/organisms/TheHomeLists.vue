@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'SearchForm',
@@ -45,6 +45,7 @@ export default {
       citiesList: [],
       countrySelected: null,
       countryOptions: null,
+      countryAlreadySelected: null,
     }
   },
 
@@ -56,11 +57,21 @@ export default {
 
   mounted() {
     this.countryOptions = this.countriesOptions
+    this.countryAlreadySelected = JSON.parse(
+      sessionStorage.getItem('countrySelected')
+    )
+    if (this.countryAlreadySelected)
+      this.showCitiesHandler(this.countryAlreadySelected)
   },
 
   methods: {
+    ...mapActions({
+      setSelectedCountry: 'countries/setSelectedCountry',
+    }),
+
     showCitiesHandler(payload) {
       if (payload) {
+        this.setSelectedCountry(payload)
         this.citiesList = payload.cities
         this.countrySelected = payload.name
       }

@@ -1,5 +1,8 @@
 export default () => ({
   countrySelected: null,
+  // the state below is a simulation of a get request data return
+  // to increase performance this endpoint would be called using nuxt server init
+  // this state would be set through a mutation called by the nuxtServerInit action
   countryOptions: [
     {
       name: 'Portugal',
@@ -13,6 +16,9 @@ export default () => ({
           code: 'LIS',
           id: 0,
           img: '/images/lisbon.png',
+          climate:
+            'In Lisbon, summer is warm, dry and with an almost cloudless sky; winter is cold, with precipitation, strong winds and partially overcast skies',
+          weather: '17°C / 62°F',
         },
         {
           name: 'Porto',
@@ -21,6 +27,9 @@ export default () => ({
           code: 'OPO',
           id: 1,
           img: '/images/porto.jpg',
+          climate:
+            'In Porto, the summer is pleasant, dry and with an almost cloudless sky; winter is cold, with precipitation and partially overcast',
+          weather: '15°C / 59°F',
         },
         {
           name: 'Coimbra',
@@ -29,6 +38,9 @@ export default () => ({
           code: 'CBP',
           id: 2,
           img: '/images/coimbra.jpg',
+          climate:
+            'In Coimbra, summer is warm, dry and with an almost cloudless sky; winter is cold, with precipitation and partially overcast.',
+          weather: '18°C / 64°F',
         },
       ],
     },
@@ -44,6 +56,9 @@ export default () => ({
           code: 'MAD',
           id: 0,
           img: '/images/madrid.png',
+          climate:
+            'In Madrid, summer is short, hot, dry and with an almost cloudless sky; winter is very cold and partially overcast.',
+          weather: '16°C / 60°F',
         },
         {
           name: 'Barcelona',
@@ -52,6 +67,9 @@ export default () => ({
           code: 'BLA',
           id: 1,
           img: '/images/barcelona2.jpg',
+          climate:
+            'In Barcelona, ​​summer is short, warm, humid and with an almost cloudless sky; winter is long, cold and partially overcast',
+          weather: '19°C / 66°F',
         },
         {
           name: 'Valencia',
@@ -60,6 +78,9 @@ export default () => ({
           code: 'VLN',
           id: 2,
           img: '/images/valencia.jpg',
+          climate:
+            'In Valencia, summer is warm, muggy and the skies are almost cloudless; the winter is long, cold, with strong winds and partially overcast',
+          weather: '19°C / 66°F',
         },
       ],
     },
@@ -75,6 +96,9 @@ export default () => ({
           code: 'ROM',
           id: 0,
           img: '/images/rome.png',
+          climate:
+            'In Rome, summer is short, hot, humid, dry and with an almost cloudless sky; winter is long, cold, with precipitation and partially overcast.',
+          weather: '15°C / 59°F',
         },
         {
           name: 'Milan',
@@ -83,6 +107,9 @@ export default () => ({
           code: 'MIL',
           id: 1,
           img: '/images/milan.jpg',
+          climate:
+            'In Milan, summer is hot and humid; winter is very cold. During the whole year, the weather is partially overcast.',
+          weather: '14°C / 57°F',
         },
         {
           name: 'Venice',
@@ -91,6 +118,9 @@ export default () => ({
           code: 'VCE',
           id: 2,
           img: '/images/venice.jpg',
+          climate:
+            'In Venice, summer is warm and humid; winter is very cold. During the whole year, the weather is partially overcast.',
+          weather: '14°C / 57°F',
         },
       ],
     },
@@ -106,6 +136,9 @@ export default () => ({
           code: 'RIO',
           id: 0,
           img: '/images/rio.jpg',
+          climate:
+            'In Rio de Janeiro, summer is short, hot, oppressive, with precipitation and an almost overcast sky; the winter is long, pleasant, humid and with an almost cloudless sky',
+          weather: '28°C / 82°F',
         },
         {
           name: 'São Paulo',
@@ -114,6 +147,9 @@ export default () => ({
           code: 'SAO',
           id: 1,
           img: '/images/sp.jpg',
+          climate:
+            'In São Paulo, summer is warm, muggy, with precipitation and an almost overcast sky; winter is short, mild and partially overcast',
+          weather: '25°C / 77°F',
         },
         {
           name: 'Brasilia',
@@ -122,6 +158,9 @@ export default () => ({
           code: 'BSB',
           id: 2,
           img: '/images/brasilia.jpg',
+          climate:
+            'In Brasília, the rainy season is overcast; the dry season is almost cloudless. All year long, the weather is warm',
+          weather: '27°C / 80°F',
         },
       ],
     },

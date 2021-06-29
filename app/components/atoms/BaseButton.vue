@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="baseButton"
     class="base-button base"
     :class="{
       red: red,

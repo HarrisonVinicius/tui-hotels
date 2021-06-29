@@ -1,5 +1,5 @@
 <template>
-  <div class="city-card" @click="clickHandler">
+  <div ref="cityCard" class="city-card" @click="clickHandler">
     <article>
       <header>
         <div class="city-card__header-img">
@@ -40,11 +40,24 @@ export default {
       type: String,
       default: '',
     },
+
+    cityData: {
+      type: Object,
+      default: () => {},
+    },
   },
 
   methods: {
     clickHandler() {
-      this.$emit('click', this.cityCode)
+      this.$emit('click', this.createObj())
+    },
+
+    createObj() {
+      const obj = {
+        code: this.cityCode,
+        cityData: this.cityData,
+      }
+      return obj
     },
   },
 }
@@ -62,7 +75,6 @@ export default {
   &__header-img
     height: 165px
     width: 100%
-    background-color: red
 
     &__img
       height: 100%
