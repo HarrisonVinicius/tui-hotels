@@ -12,10 +12,7 @@
       <h2>{{ hotel.location }}</h2>
       <br />
       <h3>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum
-        architecto perspiciatis tempore fugiat dolor, atque adipisci odit
-        laudantium nostrum tenetur, repudiandae iste corporis. Laborum
-        voluptatem adipisci explicabo beatae reprehenderit sapiente.
+        {{ hotel.intro }}
       </h3>
       <br />
       <div class="hotel-details-header__description__flags">
