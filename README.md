@@ -32,6 +32,7 @@ $ yarn install
 ```
 
 than make sure you are running node 12 
+note.: errors may occur during the process if you are not using version 12
 
 ```bash
 $ nvm use 12
