@@ -1,6 +1,17 @@
 # tui-hotels
 This is a simple travel information guide
 
+
+this application is configured to make use of the api: https://developers.amadeus.com/self-service/category/hotel/api-doc/hotel-search/api-reference
+to access the api it is necessary to generate an access token: https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262 
+
+you can use postman to generate a token and create a .env file at the root of the application folder. 
+
+due to instabilities with the endpoints of this api, some data is fixed in the application store so as not to crash the demo flow
+but in a real scenario the data that is in the store would be returned through requests made by actions
+
+>>>> this project is not 100% ready <<<<
+
 # Running the app 
 To run the app, please make sure you can install Yarn package 
 than run
