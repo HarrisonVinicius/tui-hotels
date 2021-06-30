@@ -11,6 +11,8 @@ export default () => ({
       hotelType: 'resort',
       price: 'U$ 2.500,00',
       image: '/images/belmond-sm.jpg',
+      intro:
+        'Celebrating local tradition, community and cuisine across the globe, Belmond creates luxury experiences that are as authentic as they are unique.',
       location: '21st Street, 2nd District',
       hotelFeatures: [
         { feature: 'Internet' },
@@ -41,6 +43,8 @@ export default () => ({
       hotelType: 'hotel',
       price: 'U$ 2.000,00',
       image: '/images/fourseasons-sm.jpg',
+      intro:
+        'At Four Seasons, we believe in recognizing a familiar face, welcoming a new one and treating everyone we meet the way we would want to be treated ourselves. Whether you work with us, stay with us, live with us or discover with us, we believe our purpose is to create impressions that will stay with you for a lifetime.',
       location: '4st Street, 4nd District',
       hotelFeatures: [
         { feature: 'Internet' },
@@ -71,6 +75,8 @@ export default () => ({
       hotelType: 'Resort',
       price: 'U$ 1.800,00',
       image: '/images/fairmont-sm.jpg',
+      intro:
+        'The distinctive collection of unrivaled hotels under the Fairmont banner reflects our belief in providing world-class service to guests who appreciate unique locations.',
       location: '8st Street, 5nd District',
       hotelFeatures: [
         { feature: 'Internet' },
@@ -101,6 +107,8 @@ export default () => ({
       hotelType: 'hotel',
       price: 'U$ 850,00',
       image: '/images/mandarin-sm.jpg',
+      intro:
+        'We invite you to discover the unique cultures of two award-winning luxury hotel groups, Mandarin Oriental and Oberoi Hotels & Resorts through, THE O&MO ALLIANCE. ',
       location: '9st Street, 7nd District',
       hotelFeatures: [
         { feature: 'Internet' },
@@ -127,6 +135,8 @@ export default () => ({
       hotelType: 'hotel',
       price: 'U$ 150,00',
       image: '/images/holiday-sm.jpg',
+      intro:
+        'Allow us to open up your world with True Hospitality for Good. Our diverse set of global destinations exist to broaden your choices, invite you to save or splurge, and encourage you with welcoming experiences at every arrival.',
       location: '25st Street, 8nd District',
       hotelFeatures: [
         { feature: 'Internet' },
@@ -157,6 +167,8 @@ export default () => ({
       hotelType: 'hotel',
       price: 'U$ 80,00',
       image: '/images/ibis-sm.jpg',
+      intro:
+        'Ibis is Europes leading budget hotel with more than 950 hotels in 55 countries; ibis offers its customers the highest level of service and ultimate comfort in its category at the best market prices.',
       location: '3st Street, 3nd District',
       hotelFeatures: [
         { feature: 'Internet' },

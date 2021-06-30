@@ -7,7 +7,7 @@ export default {
   head: {
     title: 'TUI - Travels',
     htmlAttrs: {
-      lang: 'pt-br',
+      lang: 'en-us',
     },
     meta: [
       { charset: 'utf-8' },
@@ -15,8 +15,46 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: '',
+        content: 'Travel with us.',
       },
+      { property: 'og:locale', content: 'en_US' },
+      {
+        property: 'og:url',
+        // content: 'site url',
+      },
+      { property: 'og:title', content: 'TUI - travels' },
+      { property: 'og:site_name', content: 'TUI travels' },
+      {
+        property: 'og:description',
+        content: 'Travel with us.',
+      },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:image',
+        // content:
+        //   'img url',
+      },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      {
+        property: 'og:image:alt',
+        content: 'TUI - travels',
+      },
+      { name: 'twitter:title', content: 'TUI - travels' },
+      {
+        name: 'twitter:description',
+        content: 'Travel with us.',
+      },
+      {
+        name: 'twitter:image',
+        // content:
+        //   'URL image',
+      },
+      {
+        name: 'twitter:image:alt',
+        content: 'TUI - travels',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
