@@ -13,6 +13,16 @@ but in a real scenario the data that is in the store would be returned through r
 >>>> this project is not 100% ready <<<<
 
 # Running the app 
+# Docker
+run 
+
+```bash
+docker-compose up --build -d
+```
+than access:
+http://localhost:3000/
+
+# Yarn
 To run the app, please make sure you can install Yarn package 
 than run
 
